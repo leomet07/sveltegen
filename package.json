@@ -1,6 +1,6 @@
 {
 	"name": "svelte-app-from-template",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Creating a custom svelte app from leomet07's template.",
 	"main": "index.js",
 	"bin": "index.js",
