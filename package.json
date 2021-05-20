@@ -1,12 +1,18 @@
 {
-	"name": "tempgen",
+	"name": "svelte-app-from-template",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Creating a custom svelte app from leomet07's template.",
 	"main": "index.js",
+	"bin": "index.js",
 	"scripts": {
 		"start": "node index.js"
 	},
-	"keywords": [],
+	"keywords": [
+		"svelte",
+		"template",
+		"create",
+		"generator"
+	],
 	"author": "",
 	"license": "ISC"
 }

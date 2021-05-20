@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const low = require("./low");
 (async function () {
 	console.log("Generate a svelte project!");
