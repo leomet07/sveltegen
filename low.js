@@ -18,7 +18,7 @@ module.exports = {
 	get_template: async function (name) {
 		const spawned = spawn("git", [
 			"clone",
-			"https://github.com/leomet07/sveltegen.git",
+			"https://github.com/leomet07/svelte-template.git",
 			name,
 		]);
 
