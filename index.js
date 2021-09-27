@@ -11,4 +11,5 @@ const low = require("./low");
 	await low.precheck(name);
 	await low.get_template(name);
 	await low.delete_git(name);
+	await low.npm_install(name);
 })();

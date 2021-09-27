@@ -1,11 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-const { spawn } = require("child_process");
+const { spawn, execSync, exec } = require("child_process");
 
 module.exports = {
 	precheck: async function (name) {
 		if (fs.existsSync(name)) {
-			console.log("Deleting the current project under dir: ", name);
 			this.delete_dir(name);
 		}
 	},
@@ -13,27 +12,14 @@ module.exports = {
 		this.delete_dir(path.join(git_path, ".git/"));
 	},
 	delete_dir: async function (to_delete) {
-		fs.promises.rmdir(to_delete, { recursive: true });
+		console.log("Deleting dir....", to_delete);
+		fs.rmdirSync(to_delete, { recursive: true, force: true });
 	},
 	get_template: async function (name) {
-		const spawned = spawn("git", [
-			"clone",
-			"https://github.com/leomet07/svelte-template.git",
-			name,
-		]);
-
-		return new Promise((resolve) => {
-			spawned.stdout.on("data", (data) => {
-				console.log(data.toString());
-			});
-
-			spawned.stderr.on("data", (data) => {
-				console.error(data.toString());
-			});
-
-			spawned.on("close", () => {
-				resolve();
-			});
-		});
+		const template_gh = "https://github.com/leomet07/svelte-template.git";
+		child = execSync("git clone " + template_gh + " " + name);
+	},
+	npm_install: async function (name) {
+		child = execSync("cd " + name + " && npm i");
 	},
 };
